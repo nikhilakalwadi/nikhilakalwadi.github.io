@@ -191,3 +191,12 @@ input:checked + label + .background {
   background-size: 100% 88%;
 }
 
+
+.updates-container {
+  max-height: 250px; /* Adjust height as needed */
+  overflow-y: auto;
+  padding-right: 10px;
+  border: 0.2px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
