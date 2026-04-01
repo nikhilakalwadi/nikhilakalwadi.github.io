@@ -358,6 +358,62 @@ input:checked + label + .background {
 .tag-report { background-color: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; }
 .tag-poster { background-color: #f3e5f5; color: #7b1fa2; border: 1px solid #e1bee7; }
 
+/* Filter Bar Styles */
+.pub-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0 30px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.filter-btn {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6c757d;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-btn:hover {
+  background: #f1f3f5;
+  border-color: #dee2e6;
+  color: #495057;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #1772d0;
+  color: white;
+  border-color: #1772d0;
+  box-shadow: 0 4px 12px rgba(23, 114, 208, 0.2);
+}
+
+.filter-btn .count {
+  font-size: 11px;
+  background: rgba(0,0,0,0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.filter-btn.active .count {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Match Tag Colors on Buttons when Active or Hovered? */
+.filter-btn[data-filter="tag-report"].active { background-color: #e65100; border-color: #e65100; }
+.filter-btn[data-filter="tag-conference"].active { background-color: #2e7d32; border-color: #2e7d32; }
+.filter-btn[data-filter="tag-workshop"].active { background-color: #1565c0; border-color: #1565c0; }
+.filter-btn[data-filter="tag-poster"].active { background-color: #7b1fa2; border-color: #7b1fa2; }
+
 
 @media (max-width: 600px) {
   .publication-card {
