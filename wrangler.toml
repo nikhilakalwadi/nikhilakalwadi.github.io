@@ -1,0 +1,22 @@
+name = "portfolio"
+compatibility_date = "2025-09-27"
+
+[assets]
+directory = "."
+binding = "ASSETS"
+
+# Explicitly exclude large/unnecessary folders
+exclude = [
+  ".git",
+  ".DS_Store",
+  ".wrangler",
+  "node_modules",
+  ".gitignore",
+  ".wranglerignore",
+  "wrangler.toml",
+  "wrangler.jsonc",
+  "README.md"
+]
+
+[observability]
+enabled = true
