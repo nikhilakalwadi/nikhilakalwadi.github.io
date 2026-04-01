@@ -1,4 +1,9 @@
-.git
+.git/
+**/.git/**
 .DS_Store
 node_modules
 .wrangler
+wrangler.jsonc
+wrangler.toml
+README.md
+*.log
