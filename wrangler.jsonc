@@ -6,19 +6,7 @@
     "enabled": true
   },
   "assets": {
-    "directory": ".",
-    "exclude": [
-      ".git",
-      ".DS_Store",
-      ".wrangler",
-      "node_modules",
-      ".gitignore",
-      ".wranglerignore",
-      "wrangler.toml",
-      "wrangler.jsonc",
-      "README.md",
-      "*.log"
-    ]
+    "directory": "."
   },
   "compatibility_flags": [
     "nodejs_compat"
