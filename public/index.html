@@ -319,7 +319,8 @@
       </p>
         <h2>Publications</h2>
         <div class="pub-filters">
-          <button class="filter-btn active" data-filter="all">All <span class="count"></span></button>
+          <button class="filter-btn active" data-filter="tag-selected">Selected Publications <span class="count"></span></button>
+          <button class="filter-btn" data-filter="all">All <span class="count"></span></button>
           <button class="filter-btn" data-filter="tag-conference">Conference Papers <span class="count"></span></button>
           <button class="filter-btn" data-filter="tag-workshop">Workshop Papers <span class="count"></span></button>
           <button class="filter-btn" data-filter="tag-poster">Posters <span class="count"></span></button>
@@ -333,7 +334,7 @@
               <img src='images/spirf4humans.pdf' class="depth-effect">
             </div>
             <div class="pub-content">
-              <div class="pub-tag tag-workshop">Workshop Paper</div>
+              <div class="pub-tag tag-workshop tag-selected">Workshop Paper</div>
               <a href="https://openaccess.thecvf.com/content/CVPR2026W/GenRecon3d/html/Akalwadi_SPiRF4Humans_Spatio-Temporal_Point_Cloud_Refinement_Framework_for_Humans_CVPRW_2026_paper.html">
                 <papertitle style="font-size: 18">SPiRF4Humans: Spatio-Temporal Point Cloud Refinement Framework for Humans</papertitle>
               </a>
@@ -677,7 +678,7 @@
               <img src='images/Nritya3D_PReMI2025_Presentation.gif' class="depth-effect">
             </div>
             <div class="pub-content">
-              <div class="pub-tag tag-conference">Conference Paper</div>
+              <div class="pub-tag tag-conference tag-selected">Conference Paper</div>
               <a href="https://doi.org/10.1007/978-3-032-18477-1_39">
                 <papertitle style="font-size: 18">Nritya3D: Monocular Video-Driven Expressive 3D Human Mesh Reconstruction</papertitle>
               </a>
@@ -856,7 +857,7 @@
               <img src='images/isetc.png' class="depth-effect">
             </div>
             <div class="pub-content">
-              <div class="pub-tag tag-conference">Conference Paper</div>
+              <div class="pub-tag tag-conference tag-selected">Conference Paper</div>
               <a href="https://ieeexplore.ieee.org/document/10797288">
                 <papertitle style="font-size: 18">Synthetic Radar Data Generation from RGB Images for Robotics and Autonomous Driving Applications</papertitle>
               </a>
@@ -993,7 +994,7 @@
               </a>
             </div>
             <div class="pub-content">
-              <div class="pub-tag tag-workshop">Workshop Paper</div>
+              <div class="pub-tag tag-workshop tag-selected">Workshop Paper</div>
               <a href="https://openaccess.thecvf.com/content/CVPR2024W/PBVS/html/Joshi_HNN_Hierarchical_Noise-Deinterlace_Net_Towards_Image_Denoising_CVPRW_2024_paper.html">
                 <papertitle style="font-size: 18">HNN: Hierarchical Noise-Deinterlace Net Towards Image Denoising</papertitle>
               </a>
@@ -1065,7 +1066,7 @@
               </a>
             </div>
             <div class="pub-content">
-              <div class="pub-tag tag-workshop">Workshop Paper</div>
+              <div class="pub-tag tag-workshop tag-selected">Workshop Paper</div>
               <a href="https://openaccess.thecvf.com/content/ICCV2023W/WiCV/html/Desai_LightNet_Generative_Model_for_Enhancement_of_Low-Light_Images_ICCVW_2023_paper.html">
                 <papertitle style="font-size: 18">LightNet: Generative Model for Enhancement of Low-Light Images</papertitle>
               </a>
@@ -1237,6 +1238,12 @@
           });
         });
       });
+
+      // Trigger click to apply initial filter to display only "Selected Publications" on page load
+      const defaultButton = document.querySelector('.filter-btn.active');
+      if (defaultButton) {
+        defaultButton.click();
+      }
     });
   </script>
 </body>
