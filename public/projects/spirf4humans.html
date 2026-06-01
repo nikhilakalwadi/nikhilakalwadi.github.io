@@ -6,6 +6,24 @@
   <link rel="icon" href="../images/favicon_io/N.jpeg" type="image/x-icon">
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="../styles.css">
+
+  <!-- MathJax for rendering LaTeX formulas -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+
   <style>
     body {
       display: block;
@@ -16,35 +34,128 @@
       align-items: center;
     }
     .container {
-      max-width: 850px;
+      max-width: 900px;
       margin: 40px auto;
       padding: 20px;
     }
     .back-link {
       margin-bottom: 20px;
       display: inline-block;
+      font-weight: bold;
+      transition: color 0.2s ease;
     }
     .project-image {
       width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin: 20px 0 10px 0;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
-    .results-grid {
+    .project-image:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+    .image-caption {
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+      margin: 0 0 30px 0;
+      line-height: 1.5;
+      padding: 0 20px;
+      font-style: italic;
+    }
+    .paper-info {
+      padding: 20px;
+      border-left: 4px solid #1772d0;
+      background: #f7faff;
+      border-radius: 0 8px 8px 0;
+      margin: 25px 0;
+      line-height: 1.6;
+    }
+    h1 { font-size: 34px; margin-bottom: 10px; font-weight: 700; color: #222; }
+    h2 { font-size: 22px; font-weight: 700; color: #333; }
+    .tagline { font-style: italic; color: #666; font-size: 18px; margin-bottom: 30px; }
+    .section-title { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 45px; margin-bottom: 20px; }
+    
+    .grid-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
-      margin-top: 30px;
-    }
-    .paper-info {
-      padding: 15px;
-      border-left: 4px solid #1772d0;
-      background: #f7faff;
       margin: 20px 0;
     }
-    h1 { font-size: 32px; margin-bottom: 10px; }
-    .tagline { font-style: italic; color: #666; font-size: 18px; margin-bottom: 30px; }
-    .section-title { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 40px; }
+    
+    .metrics-table-wrapper {
+      overflow-x: auto;
+      margin: 25px 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+    }
+    
+    .metrics-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+    
+    .metrics-table th {
+      background: #1772d0;
+      color: #ffffff;
+      padding: 12px 14px;
+      font-weight: 700;
+    }
+    
+    .metrics-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #eeeeee;
+      color: #444;
+    }
+    
+    .metrics-table tr:nth-of-type(even) {
+      background-color: #f8f9fa;
+    }
+    
+    .metrics-table tr:hover {
+      background-color: #f1f3f5;
+    }
+    
+    .metrics-table tr.highlight-row {
+      background-color: #e3f2fd;
+      font-weight: bold;
+      border-top: 2px solid #1772d0;
+      border-bottom: 2px solid #1772d0;
+    }
+    
+    .metrics-table tr.highlight-row td {
+      color: #0d47a1;
+    }
+    
+    .highlight-badge {
+      background-color: #ff9800;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .asymmetric-block {
+      background: #fafafa;
+      border: 1px dashed #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 25px 0;
+    }
+
+    @media (max-width: 768px) {
+      .grid-container {
+        grid-template-columns: 1fr;
+      }
+      h1 { font-size: 28px; }
+      .container { padding: 15px; margin: 20px auto; }
+    }
   </style>
 </head>
 <body>
@@ -57,31 +168,232 @@
     <div class="paper-info">
       <strong>Conference:</strong> GenRecon3D, CVPR-W 2026<br>
       <strong>Focus:</strong> 4D Human Capturing, Point Cloud Completion, Spatio-Temporal Modeling<br>
-      <strong>Links:</strong> <a href="https://openaccess.thecvf.com/content/CVPR2026W/GenRecon3d/html/Akalwadi_SPiRF4Humans_Spatio-Temporal_Point_Cloud_Refinement_Framework_for_Humans_CVPRW_2026_paper.html">CVF Paper</a> | <a href="https://openaccess.thecvf.com/content/CVPR2026W/GenRecon3d/papers/Akalwadi_SPiRF4Humans_Spatio-Temporal_Point_Cloud_Refinement_Framework_for_Humans_CVPRW_2026_paper.pdf">PDF</a> | <a href="../data/spirf4humans.bib">BibTeX</a>
+      <strong>Links:</strong> <a href="https://openaccess.thecvf.com/content/CVPR2026W/GenRecon3d/html/Akalwadi_SPiRF4Humans_Spatio-Temporal_Point_Cloud_Refinement_Framework_for_Humans_CVPRW_2026_paper.html" target="_blank">CVF Paper</a> | <a href="https://openaccess.thecvf.com/content/CVPR2026W/GenRecon3d/papers/Akalwadi_SPiRF4Humans_Spatio-Temporal_Point_Cloud_Refinement_Framework_for_Humans_CVPRW_2026_paper.pdf" target="_blank">PDF</a> | <a href="../data/spirf4humans.bib" target="_blank">BibTeX</a>
     </div>
 
     <div class="content">
       <p align="justify">
-        <strong>SPiRF4Humans</strong> is a novel framework for the refinement of 4D human point cloud sequences. High-fidelity 4D point clouds, acquired from volumetric capture systems, frequently suffer from holes and noise caused by occlusions, sensor limitations, and complex, time-varying topologies. Our framework addresses these challenges by leveraging the inherent spatio-temporal coherence in human motion data.
+        <strong>SPiRF4Humans</strong> is a novel deep learning framework for the refinement of 4D human point cloud sequences. High-fidelity 4D point clouds, acquired from volumetric capture systems, frequently suffer from massive holes and noise caused by self-occlusions, sensor limitations, and complex, time-varying topologies. Our framework addresses these challenges by leveraging the inherent spatio-temporal coherence in human motion data.
       </p>
+
+      <img src="../images/teaser-v3.png" class="project-image" alt="SPiRF4Humans Teaser Comparison" />
+      <p class="image-caption"><strong>Teaser comparison of input, reconstructed, and ground truth 4D human point clouds.</strong> Left: Incomplete, sparse input with severe occlusion-induced holes (2,048 pts). Middle: Our proposed <strong>SPiRF4Humans</strong> output (16,384 pts) showing stable and smooth hole filling. Right: Complete ground truth (16,384 pts). The insets highlight our performance on complex joint structures.</p>
 
       <h2 class="section-title">Core Contributions</h2>
       <ul>
-        <li><strong>Spatio-Temporal Transformer Encoder</strong>: Extracts long-range space-time features to maintain temporal consistency across frames.</li>
-        <li><strong>Topo-Deco (Topological Decoder)</strong>: A topology-aware hierarchical decoder that progressively reconstructs missing regions by learning geometric relationships.</li>
-        <li><strong>Perceptual Loss</strong>: Inspired by Dynamic Graph Convolutional Neural Networks (DGCNN), penalizing structural discrepancies in a high-dimensional feature space.</li>
+        <li>
+          <strong>SPiRF4Humans</strong>, a spatio-temporal point cloud hole-filling framework towards 4D data refinement. We propose:
+          <ul style="margin-top: 5px; margin-bottom: 5px;">
+            <li>a <strong>transformer-based encoder</strong> to capture space-time varying features in 4D data.</li>
+            <li>a <strong>topology-based decoder</strong> for understanding the intricate manifold topologies in 4D data and make consistent 4D predictions.</li>
+            <li>a <strong>perceptual loss inspired by Dynamic Graph Convolutional Neural Network (DGCNN)</strong> to supervise the refinement process by penalizing structural discrepancies in a high-dimensional feature space.</li>
+          </ul>
+        </li>
+        <li>We create a <strong>4D Human dataset</strong> with physically-grounded occlusion synthesis via ray-casting. We utilize the Dynamic FAUST Dataset to create realistic occlusions in 4D capture.</li>
+        <li>We demonstrate the efficiency of the proposed SPiRF4Humans on hole-filling in 4D human point cloud data. We also compare our proposed method with state-of-the-art methods both qualitatively and quantitatively.</li>
       </ul>
 
-      <h2 class="section-title">Qualitative Results</h2>
-      <div style="background: #f0f0f0; height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 10px;">
-        <p style="color: #888;">[Insert image: Comparison of sparse input vs refined output]</p>
-      </div>
-      <p align="center"><em>From sparse input (2,048 points) to refined output (16,384 points), demonstrating effective hole-filling.</em></p>
+      <h2 class="section-title">Network Architecture</h2>
+      <img src="../images/spirf4humans_v2.png" class="project-image" alt="SPiRF4Humans Network Architecture" />
+      <p class="image-caption"><strong>SPiRF4Humans Architecture.</strong> Our complete model workflow, featuring a Spatio-Temporal Transformer Encoder that models cross-frame dynamics alongside a topology-aware hierarchical decoder to refine and reconstruct highly detailed human manifolds.</p>
 
-      <h2 class="section-title">Quantitative Performance</h2>
+      <h2 class="section-title">Ray-Casting Hole Creation Process</h2>
       <p align="justify">
-        Experimental results show that SPiRF4Humans significantly outperforms existing methods like PCN and SPiKE in terms of both geometric accuracy (Chamfer Distance) and temporal stability.
+        To train models capable of handling real-world sensor limitations, we simulate dynamic self-occlusion. We implement a physically-grounded ray-casting occlusion engine that shoots virtual rays from camera positions, carving out realistic, sequence-consistent occlusion holes.
       </p>
+      <img src="../images/hole-creation3.png" class="project-image" alt="Ray-Casting Based Hole Creation Process" />
+      <p class="image-caption"><strong>Ray-Casting Based Hole Creation Process.</strong> Occlusions are dynamically calculated using ray-sensor intersections to generate realistic, sequence-consistent voids on the 4D manifold.</p>
+
+      <h2 class="section-title">Dataset Samples (Shake Arms Action)</h2>
+      <p align="justify">
+        Below are dataset samples illustrating how simulated dynamic self-occlusion varies across frames for a dynamic human action like the <em>Shake Arms</em> sequence, showing the generated occlusion patterns and visibility bounds.
+      </p>
+      <img src="../images/dataset_creation_shakearms.png" class="project-image" alt="Dataset Generation Samples (Shake Arms)" />
+      <p class="image-caption"><strong>Dataset Generation Samples (Shake Arms).</strong> Simulated dynamic occlusion patterns and visibility bounds mapped sequentially across the action timeline.</p>
+
+      <div class="asymmetric-block">
+        <h3>💡 Asymmetric Sampling Strategy & Coordinate Misalignment</h3>
+        <p align="justify" style="font-size: 13px; line-height: 1.5; margin: 0;">
+          A key breakthrough in our data pipeline is the <strong>Asymmetric Sampling Strategy</strong>. Complete Ground Truth (GT) scans are sampled using Farthest Point Sampling (FPS) to ensure maximum boundary coverage. However, the partial input is sampled randomly to preserve the "void signal" of the occlusion. 
+          <br><br>
+          Crucially, to prevent <strong>Coordinate Misalignment</strong>, all spatial normalizations (centering and unit-sphere scaling) are calculated using the <em>complete GT sequence</em>, and then identically applied to the partial inputs. Center-shifting the partial cloud independently based on its own centroid would translate it physically in 3D space due to the missing mass (e.g., a missing leg), causing the neural network to fail to align the coordinate structures.
+        </p>
+      </div>
+
+      <h2 class="section-title">Qualitative Sequence Comparisons</h2>
+      <p align="justify">
+        Below are qualitative frame sequences showing SPiRF4Humans evaluated against state-of-the-art baselines like PCN and SPiKE on complex dynamic movements.
+      </p>
+
+      <!-- <img src="../images/full-res-chickenwings.png" class="project-image" alt="Chicken Wings Sequence Comparison" />
+      <p class="image-caption"><strong>Qualitative comparison on the "Chicken Wings" action sequence.</strong> PCN suffers from severe clumping and grid artifacts. SPiKE exhibits surface clumping. SPiRF4Humans produces uniform, temporally smooth surfaces.</p> -->
+
+      <img src="../images/full-res-punching.png" class="project-image" alt="Punching Sequence Comparison" />
+      <p class="image-caption"><strong>Qualitative comparison on the high-speed "Punching" action sequence.</strong> Our framework maintains sharp joint boundaries and fills large temporal occlusions along the arms and back with high-fidelity surface details.</p>
+
+      <h2 class="section-title">Quantitative Benchmarks</h2>
+      <p align="justify">
+        We benchmark our model against state-of-the-art architectures using Chamfer Distance (CD) and Earth Mover's Distance (EMD). Lower is better. Our model reduces the average Chamfer Distance error by <strong>83.2%</strong> compared to PCN and <strong>81.0%</strong> compared to SPiKE.
+      </p>
+
+      <div class="metrics-table-wrapper">
+        <table class="metrics-table">
+          <thead>
+            <tr>
+              <th>Action Sequence</th>
+              <th>PCN (CD $\downarrow$)</th>
+              <th>PCN (EMD $\downarrow$)</th>
+              <th>SPiKE (CD $\downarrow$)</th>
+              <th>SPiKE (EMD $\downarrow$)</th>
+              <th>Ours (CD $\downarrow$)</th>
+              <th>Ours (EMD $\downarrow$)</th>
+              <th>Ours ($L_{spirf} \downarrow$)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Chicken Wings</td>
+              <td>8.6802</td>
+              <td>4.0281</td>
+              <td>7.5210</td>
+              <td>3.8102</td>
+              <td>1.0929</td>
+              <td>0.0242</td>
+              <td>0.000144</td>
+            </tr>
+            <tr>
+              <td>Hips</td>
+              <td>7.8520</td>
+              <td>4.1101</td>
+              <td>6.9123</td>
+              <td>3.9021</td>
+              <td>0.4421</td>
+              <td>0.0210</td>
+              <td>0.000140</td>
+            </tr>
+            <tr>
+              <td>Jiggle On Toes</td>
+              <td>5.9127</td>
+              <td>3.2982</td>
+              <td>5.1021</td>
+              <td>3.0124</td>
+              <td>1.0990</td>
+              <td>0.0305</td>
+              <td>0.000208</td>
+            </tr>
+            <tr>
+              <td>Jumping Jacks</td>
+              <td>4.3210</td>
+              <td>2.9202</td>
+              <td>3.8921</td>
+              <td>2.5012</td>
+              <td>0.7099</td>
+              <td>0.0288</td>
+              <td>0.000297</td>
+            </tr>
+            <tr>
+              <td>Knees</td>
+              <td>2.8320</td>
+              <td>1.0211</td>
+              <td>2.1023</td>
+              <td>0.9102</td>
+              <td>0.3010</td>
+              <td>0.0156</td>
+              <td>0.000147</td>
+            </tr>
+            <tr>
+              <td>Light Hopping</td>
+              <td>8.4022</td>
+              <td>4.3025</td>
+              <td>7.6102</td>
+              <td>4.1023</td>
+              <td>1.4273</td>
+              <td>0.0311</td>
+              <td>0.000137</td>
+            </tr>
+            <tr>
+              <td>One Leg Jump</td>
+              <td>6.4867</td>
+              <td>2.3900</td>
+              <td>5.9012</td>
+              <td>2.1023</td>
+              <td>1.1607</td>
+              <td>0.0225</td>
+              <td>0.000156</td>
+            </tr>
+            <tr>
+              <td>One Leg Loose</td>
+              <td>7.7609</td>
+              <td>4.9022</td>
+              <td>6.8123</td>
+              <td>4.5012</td>
+              <td>2.1789</td>
+              <td>0.0345</td>
+              <td>0.000165</td>
+            </tr>
+            <tr>
+              <td>Punching</td>
+              <td>9.3630</td>
+              <td>5.8492</td>
+              <td>8.4102</td>
+              <td>5.2012</td>
+              <td>1.2134</td>
+              <td>0.0412</td>
+              <td>0.000174</td>
+            </tr>
+            <tr>
+              <td>Running On Spot</td>
+              <td>1.2865</td>
+              <td>0.2920</td>
+              <td>1.1023</td>
+              <td>0.2501</td>
+              <td>2.2357</td>
+              <td>0.0102</td>
+              <td>0.000228</td>
+            </tr>
+            <tr>
+              <td>Shake Arms</td>
+              <td>9.1625</td>
+              <td>5.3910</td>
+              <td>8.2102</td>
+              <td>5.0123</td>
+              <td>1.2905</td>
+              <td>0.0389</td>
+              <td>0.000153</td>
+            </tr>
+            <tr>
+              <td>Shake Hips</td>
+              <td>7.9229</td>
+              <td>4.3902</td>
+              <td>7.1023</td>
+              <td>4.0123</td>
+              <td>0.8332</td>
+              <td>0.0322</td>
+              <td>0.000131</td>
+            </tr>
+            <tr>
+              <td>Shake Shoulders</td>
+              <td>8.5087</td>
+              <td>5.2933</td>
+              <td>7.7123</td>
+              <td>4.9021</td>
+              <td>0.9317</td>
+              <td>0.0367</td>
+              <td>0.000146</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>Average</td>
+              <td>6.8380</td>
+              <td>3.7067</td>
+              <td>6.0321</td>
+              <td>3.3331</td>
+              <td>1.1474 <span class="highlight-badge">Best</span></td>
+              <td>0.0282 <span class="highlight-badge">Best</span></td>
+              <td>0.000171</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
     </div>
 
