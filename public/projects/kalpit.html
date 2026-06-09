@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project KALPIT - Nikhil Akalwadi</title>
+  <link rel="icon" href="../images/favicon_io/N.jpeg" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      display: block;
+      padding: 0;
+      margin: 0;
+      background-color: #ffffff;
+      height: auto;
+      align-items: center;
+    }
+    .container {
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .back-link {
+      margin-bottom: 20px;
+      display: inline-block;
+      text-decoration: none;
+      color: #1772d0;
+    }
+    .back-link:hover {
+      color: #f09228;
+    }
+    .project-image {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin: 20px 0;
+    }
+    .project-context {
+      background: #fcfcfc;
+      padding: 20px;
+      border-left: 4px solid #800080;
+      margin-bottom: 30px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .project-context strong { color: #800080; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .feature-card {
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      background: #fafafa;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+    }
+    .feature-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-size: 16px;
+    }
+    .feature-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.4;
+    }
+    h1 { font-size: 36px; margin-bottom: 10px; color: #333; }
+    .tagline { font-style: italic; color: #666; font-size: 18px; margin-bottom: 20px; }
+    .section-title { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 40px; color: #333; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Portfolio</a>
+    
+    <h1>Project KALPIT</h1>
+    <p class="tagline">Digital Creation to Enable Gamification Based on Indian Ethos</p>
+
+    <div class="project-context">
+      <strong>Project KALPIT</strong> is a prestigious sponsored research initiative supported by the <strong>Department of Science and Technology (DST)</strong> under the <strong>SERB-INAE</strong> (Science and Engineering Research Board – Indian National Academy of Engineering) programme's <em>"Online and Digital Gaming Research Initiative"</em>. Led by Principal Investigator <strong>Prof. Uma Mudenagudi</strong>, the project is run at the <strong><a href="https://cevi.co.in" target="_blank">KLETech Center for Visual Intelligence (CEVI)</a></strong>.
+      <br><br>
+      Official Project Page: <a href="https://cevi.co.in/projects/sponsored/kalpit" target="_blank">cevi.co.in/projects/sponsored/kalpit</a>
+    </div>
+
+    <div class="content">
+      <img src="../images/kalpit_overview.jpeg" alt="Project KALPIT Overview" class="project-image">
+      <p align="center" style="margin-top: -10px; font-size: 13px; color: #666; font-style: italic;">Overview of the digital asset generation and virtual interaction pipelines under Project KALPIT.</p>
+
+      <h2 class="section-title">Core Objective</h2>
+      <p align="justify">
+        The overarching mission of Project KALPIT is to preserve, digitize, and gamify India's rich cultural heritage, historical artifacts, traditional designs, and storytelling traditions. By combining advanced computer vision, computer graphics, and generative AI pipelines, the project builds a high-fidelity 3D ecosystem. This enables immersive digital experiences—ranging from educational games to spatial reality/AR applications—rooted in Indian ethos and values.
+      </p>
+
+      <h2 class="section-title">Key Pillars of my Contribution</h2>
+      <p align="justify">
+        As a Junior Research Fellow and Scholar at CEVI closely working on KALPIT, my research focuses on the core visual intelligence blocks that power the digital creation pipeline:
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <strong>3D Asset Generation (ShilpAI)</strong>
+          <p>Developed generative AI tools utilizing models like TRELLIS and Hunyuan3D-2.1 to reconstruct accurate 3D geometries and synthesize PBR materials for cultural artifacts and traditional jewelry (Jhumkas, rings) from single-view photographs.</p>
+          <p style="margin-top: 10px; font-size: 12px;"><a href="shilpai.html">View ShilpAI →</a></p>
+        </div>
+
+        <div class="feature-card">
+          <strong>4D Human Digitization (SPiRF4Humans)</strong>
+          <p>Created spatio-temporal refinement frameworks for dynamic 4D point clouds of humans, enabling realistic reconstruction of moving characters and avatars for games and XR stages.</p>
+          <p style="margin-top: 10px; font-size: 12px;"><a href="spirf4humans.html">View SPiRF4Humans →</a></p>
+        </div>
+
+        <div class="feature-card">
+          <strong>Expressive 3D Reconstructions (Nritya3D)</strong>
+          <p>Researched monocular video-driven expressive 3D human mesh reconstruction, enabling skeletal and facial gesture transfer to cultural avatars.</p>
+        </div>
+
+        <div class="feature-card">
+          <strong>Interactive 3D Showcase</strong>
+          <p>Created interactive galleries and web-based AR pipelines to host, view, and test reconstructed assets in real-time, bringing traditional assets to life.</p>
+          <p style="margin-top: 10px; font-size: 12px;"><a href="gallery.html">View 3D Gallery →</a></p>
+        </div>
+      </div>
+
+      <h2 class="section-title">Technical Impact</h2>
+      <p align="justify">
+        By transitioning from manual 3D modeling to AI-driven generation and volumetric capture, Project KALPIT demonstrates how low-cost, high-speed digitalization can scale. These generated assets populate digital twins of historical sites, allow real-time virtual try-ons for traditional jewelry, and serve as game assets in interactive experiences that promote Indian heritage.
+      </p>
+    </div>
+
+    <hr class="horizontal-line" style="margin-top: 50px;">
+    <p align="center" style="font-size: 12px; color: #999;">&copy; 2026 Nikhil Akalwadi. All rights reserved.</p>
+  </div>
+</body>
+</html>
